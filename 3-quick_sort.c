@@ -1,6 +1,43 @@
 #include "sort.h"
 
 /**
+ * quick_sort -  sorts an array of integers in ascending
+ * order using the Quick sort algorithm
+ * @array: array to sort
+ * @size: array size
+ * Return: nothing
+ */
+void quick_sort(int *array, size_t size)
+{
+	int low, high;
+
+	low = 0;
+	high = size - 1;
+
+	sorting(array, low, high, size);
+}
+
+/**
+ * sorting - validate each position of array
+ * @array: array to be sorted
+ * @low: the lower position
+ * @high: the higher position
+ * @size: array size
+ * Return: nothing
+ */
+void sorting(int *array, int low, int high, size_t size)
+{
+	if (low > high)
+		return;
+
+	int p = partition(array, low, high, size);
+
+	sorting(array, low, p - 1, size);
+	sorting(array, p + 1, high, size);
+
+}
+
+/**
  * partition - divide using the pivot
  * @array: array to be sorted
  * @low: the lower position
@@ -32,42 +69,4 @@ int partition(int *array, int low, int high, size_t size)
 		i++;
 	}
 	return (pos);
-}
-
-/**
- * sorting - validate each position of array
- * @array: array to be sorted
- * @low: the lower position
- * @high: the higher position
- * @size: array size
- * Return: nothing
- */
-
-void sorting(int *array, int low, int high, size_t size)
-{
-	if (low > high)
-		return;
-
-	int p = partition(array, low, high, size);
-
-	sorting(array, low, p - 1, size);
-	sorting(array, p + 1, high, size);
-
-}
-
-/**
- * quick_sort -  sorts an array of integers in ascending
- * order using the Quick sort algorithm
- * @array: array to sort
- * @size: array size
- * Return: nothing
- */
-void quick_sort(int *array, size_t size)
-{
-	int low, high;
-
-	low = 0;
-	high = size - 1;
-
-	sorting(array, low, high, size);
 }

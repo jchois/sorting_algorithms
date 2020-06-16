@@ -8,7 +8,7 @@
  * Return: nothing
  */
 
-void quick_sort(int *array, size_t size)
+void selection_sort(int *array, size_t size)
 {
 	size_t i, j, num_min;
 	int aux;

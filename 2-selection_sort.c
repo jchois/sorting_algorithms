@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * quick_sort - sorts an array of integers in ascending order
+ * selection_sort - sorts an array of integers in ascending order
  * using the Quick sort algorithm
  * @array: array to sort
  * @size: array sixe
@@ -26,12 +26,9 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[num_min])
 				num_min = j;
 		}
-		if (num_min != i)
-		{
-			aux = array[i];
-			array[i] = array[num_min];
-			array[num_min] = aux;
-			print_array(array, size);
-		}
+		aux = array[i];
+		array[i] = array[num_min];
+		array[num_min] = aux;
+		print_array(array, size);
 	}
 }

@@ -26,9 +26,12 @@ void quick_sort(int *array, size_t size)
 			if (array[j] < array[num_min])
 				num_min = j;
 		}
-		aux = array[i];
-		array[i] = array[num_min];
-		array[num_min] = aux;
-		print_array(array, size);
+		if (num_min != i)
+		{
+			aux = array[i];
+			array[i] = array[num_min];
+			array[num_min] = aux;
+			print_array(array, size);
+		}
 	}
 }
